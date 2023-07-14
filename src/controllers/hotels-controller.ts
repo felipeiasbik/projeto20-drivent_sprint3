@@ -5,7 +5,6 @@ import hotelsService from "@/services/hotels-service";
 
 export async function getHotels(req: AuthenticatedRequest, res: Response){
     const {userId} = req;
-    console.log(userId);
     const hotels = await hotelsService.getHotels(userId);
 
     return res.send(hotels);

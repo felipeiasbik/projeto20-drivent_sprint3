@@ -5,8 +5,8 @@ import ticketTypeRepository from "../../repositories/ticket-type-repository";
 import ticketsRepository from "../../repositories/tickets-repository";
 
 async function getHotels(userId: number){
+
     const enrollment = await enrollmentRepository.findWithAddressByUserId(userId);
-    console.log(userId);
     if (!enrollment) throw notFoundError();
 
     const ticket = await ticketsRepository.findTicketByEnrollmentId(enrollment.id);
@@ -22,7 +22,7 @@ async function getHotels(userId: number){
         };
    
     const hotels = await hotelsRepository.getHotels();
-    if (!hotels) throw notFoundError();
+    if (hotels.length === 0) throw notFoundError();
 
     return hotels;
 }

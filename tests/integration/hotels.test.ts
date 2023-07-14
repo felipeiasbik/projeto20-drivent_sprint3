@@ -9,7 +9,7 @@ import faker from "@faker-js/faker";
 import { createTicket } from "../factories";
 import { TicketStatus } from "@prisma/client";
 
-beforeAll(async () => {
+beforeEach(async () => {
     await init();
     await cleanDb();
 });

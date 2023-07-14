@@ -48,7 +48,7 @@ async function getRoomsHotelsId(userId: number, hotelId: number){
     if (hotels.length === 0) throw notFoundError();
 
     const rooms = await hotelsRepository.getRoomsHotelsId(hotelId);
-
+    console.log(rooms);
     return rooms;
 }
 

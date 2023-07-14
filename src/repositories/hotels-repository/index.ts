@@ -5,12 +5,14 @@ async function getHotels(){
     return await prisma.hotel.findMany();
 }
 
-async function getHotelsId(){
-
+async function getRoomsHotelsId(hotelId: number){
+    return await prisma.room.findMany({
+        where: { hotelId }
+    });
 }
 
 const hotelsRepository = {
-    getHotels, getHotelsId
+    getHotels, getRoomsHotelsId
 }
 
 export default hotelsRepository;
